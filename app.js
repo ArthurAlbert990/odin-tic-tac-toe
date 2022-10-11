@@ -23,7 +23,14 @@ function markCell(e){
     let cell = e.target;
     let cellIndex = e.target.getAttribute('data-position');
     if (cell.textContent == ''){
-        cell.textContent = user1.symbol;
+        if(user1Turn){
+            cell.textContent = user1.symbol;
+            user1Turn = false;
+        } else{
+            cell.textContent = user2.symbol;
+            user1Turn = true;
+        }
+        
     }
     checkForVictory()
 }
@@ -31,6 +38,8 @@ function markCell(e){
 function checkForVictory(){
     // obtain cells, make array with their content
     // check against win conditions
+    // return player if win.
+    return false;
 }
 
 //elements
@@ -45,7 +54,6 @@ const user2 = player('Machine','O');
 
 
 //Ainda a implementar:
-// a cada jogada, mudar o jogar 'X' OU 'O'
 // checkForVictory(), função para checar vitória
 // botão reset
 // estilização geral.
