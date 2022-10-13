@@ -30,7 +30,6 @@ function markCell(e){
     //if cell is empty, mark with x or o.
     //check if won
     //other player turn.
-    console.log('markcell');
     let cell = e.target;
     let cellIndex = e.target.getAttribute('data-position');
     if (cell.textContent == ''){
@@ -56,8 +55,6 @@ function checkForVictory(user,symbol){
     // check against win conditions
     // return player if win.
 
-    console.log('check for victory');
-
     for (let combination of winningArray){
         console.log(combination)
         if(gameboard[combination[0]]==symbol && gameboard[combination[1]]==symbol && gameboard[combination[2]]==symbol){
@@ -69,19 +66,28 @@ function checkForVictory(user,symbol){
     return false;
 }
 
+
+function resetGame(){
+    console.log('reset')
+    for(let element of cell){element.textContent=''}
+    gameboard={};
+
+    return({'reset':true,gameboard})
+}
+
 //elements
 const cell = document.querySelectorAll('.gameCell');
+const resetBtn = document.querySelector('.reset-btn');
+
 
 //event listeners
 cell.forEach(element=>{element.addEventListener('click',markCell)});
-
+resetBtn.addEventListener('click',resetGame);
 //create start players
 const user1 = player('Jeff','X');
 const user2 = player('Machine','O');
 
 
 //Ainda a implementar:
-// checkForVictory(), função para checar vitória
-// botão reset
 // estilização geral.
 
