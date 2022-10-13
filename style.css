@@ -37,7 +37,6 @@ body{
 .container{
     height: 70vh;
     width: 70vh;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,4 +51,28 @@ body{
     align-items: center;;
     width: 100%;
     height: 100%;
+}
+
+.options{
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.reset-btn{
+    padding: .7rem;
+    border: none;
+    border-radius: 0.15rem;
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.reset-btn:hover{
+    background-color: rgb(6, 92, 179);
+    transition: all 0.15s;
 }
